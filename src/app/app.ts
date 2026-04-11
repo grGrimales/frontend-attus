@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/components/header/header';
+import { UserService } from './core/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,10 @@ import { HeaderComponent } from './core/components/header/header';
   styleUrl: './app.css'
 })
 export class App {
+  private userService = inject(UserService);
   protected readonly title = signal('desafio-frontend-attus');
 
   handleSearch(term: string) {
-    console.log('Search term from header:', term);
+    this.userService.setSearchTerm(term);
   }
 }

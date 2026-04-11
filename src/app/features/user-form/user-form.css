@@ -1,0 +1,97 @@
+.modal-flat-container {
+  border-radius: 0 !important; 
+  background-color: white;
+  padding: 30px; 
+  
+  box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 
+              0 24px 38px 3px rgba(0,0,0,.14), 
+              0 9px 46px 8px rgba(0,0,0,.12) !important;
+}
+
+.form-title {
+  font-size: 16px;
+  font-weight: 700; 
+  margin-bottom: 30px;
+  color: #000;
+  border-radius: 0 !important;
+}
+
+.flat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-underline {
+  border-bottom: 1px solid #bcbcbc;
+  padding: 4px 0;
+}
+
+.input-underline input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  background: transparent;
+}
+
+.input-underline input::placeholder {
+  color: #bcbcbc;
+}
+
+.form-row-triple {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-wrapper select {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  appearance: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.arrow {
+  font-size: 10px;
+  color: #bcbcbc;
+  position: absolute;
+  right: 0;
+}
+
+.sms-info {
+  color: #2196f3;
+  font-size: 13px;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.actions-left {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.btn-salvar {
+  background-color: #2196f3 !important;
+  color: white !important;
+  border-radius: 2px !important; 
+  padding: 0 30px !important;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}

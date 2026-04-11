@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+
+.flat-dialog-panel .mat-mdc-dialog-container,
+.flat-dialog-panel .mdc-dialog__container,
+.flat-dialog-panel .mdc-dialog__surface {
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: none !important; 
+}
+
+.flat-dialog-panel {
+    border-radius: 0 !important;
+}
