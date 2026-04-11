@@ -1,0 +1,93 @@
+.content-wrapper {
+  padding: 40px 20px;
+  background-color: #f5f5f5; /* El gris de fondo del prototipo */
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+}
+
+.container-center {
+  width: 100%;
+  max-width: 1000px; /* Ancho controlado */
+}
+
+.subtitle {
+  color: #616161;
+  font-size: 14px;
+  margin-bottom: 16px;
+  margin-left: 8px; /* Alineado con el inicio del card */
+}
+
+.user-table {
+  width: 100%;
+  background: transparent;
+  border-spacing: 0 8px !important; /* Espacio entre "cards" */
+  border-collapse: separate !important;
+}
+
+/* Efecto de Card para cada fila */
+.user-row {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 64px;
+  transition: transform 0.2s;
+}
+
+.user-row:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+/* Quitar las líneas divisorias por defecto de Angular Material */
+.mat-mdc-cell {
+  border-bottom: none !important;
+}
+
+/* Redondear las esquinas de cada fila (card) */
+.mat-mdc-cell:first-child {
+  border-radius: 4px 0 0 4px;
+  padding-left: 24px !important;
+}
+
+.mat-mdc-cell:last-child {
+  border-radius: 0 4px 4px 0;
+  padding-right: 24px !important;
+}
+
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 16px; 
+}
+
+.user-icon {
+  margin: 0; 
+}
+
+.fab-bottom-right {
+  position: fixed; 
+  bottom: 32px;    
+  right: 32px;     
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.fab-bottom-right {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 1000;
+  border-radius: 50% !important; 
+  width: 48px !important;
+  height: 48px !important;
+  
+  background-color: #f44336 !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
