@@ -1,23 +1,59 @@
 <div class="modal-flat-container">
-  <h2 class="form-title">Adicionar novo usuário</h2>
+  <h2 class="form-title">
+    {{ data ? 'Editar usuário' : 'Adicionar novo usuário' }}
+  </h2>
 
   <form [formGroup]="userForm" class="flat-form">
-    
-    <div class="input-underline">
-      <input type="email" placeholder="Usuário (e-mail) *" formControlName="email">
+    <div class="input-container">
+      <div class="input-underline" [class.error]="f.email.invalid && f.email.touched">
+        <input type="email" placeholder="Usuário (e-mail) *" formControlName="email" />
+      </div>
+
+      @if (f.email.touched && f.email.errors) {
+        @if (f.email.errors['required']) {
+          <small class="error-msg">O e-mail é obrigatório</small>
+        } @else if (f.email.errors['email']) {
+          <small class="error-msg">Por favor, insira um e-mail válido (ex: nome@email.com)</small>
+        }
+      }
     </div>
 
-    <div class="input-underline">
-      <input type="text" placeholder="Nome completo *" formControlName="name">
+    <div class="input-container">
+      <div class="input-underline" [class.error]="f.name.invalid && f.name.touched">
+        <input type="text" placeholder="Nome completo *" formControlName="name" />
+      </div>
+      @if (f.name.touched && f.name.errors) {
+        @if (f.name.errors['required']) {
+          <small class="error-msg">O nome é obrigatório</small>
+        } @else if (f.name.errors['minlength']) {
+          <small class="error-msg">O nome deve ter no mínimo 3 caracteres</small>
+        }
+      }
     </div>
 
     <div class="form-row-triple">
-      <div class="input-underline flex-2">
-        <input type="text" placeholder="CPF *" formControlName="cpf">
+      <div class="flex-2">
+        <div class="input-underline" [class.error]="f.cpf.invalid && f.cpf.touched">
+          <input type="text" placeholder="CPF *" formControlName="cpf" />
+        </div>
+        @if (f.cpf.touched && f.cpf.errors) {
+          @if (f.cpf.errors['required']) {
+            <small class="error-msg">O CPF é obrigatório</small>
+          } @else if (f.cpf.errors['pattern']) {
+            <small class="error-msg">Por favor, insira um CPF válido</small>
+          }
+        }
       </div>
 
-      <div class="input-underline flex-2">
-        <input type="text" placeholder="Número do telefone *" formControlName="phone">
+      <div class="flex-2">
+        <div class="input-underline" [class.error]="f.phone.invalid && f.phone.touched">
+          <input type="text" placeholder="Número do telefone *" formControlName="phone" />
+        </div>
+        @if (f.phone.touched && f.phone.errors) {
+          @if (f.phone.errors['required']) {
+            <small class="error-msg">O número de telefone é obrigatório</small>
+          }
+        }
       </div>
 
       <div class="input-underline flex-1 select-wrapper">
@@ -29,14 +65,20 @@
       </div>
     </div>
 
-    <p class="sms-info">
-      O usuário receberá uma senha provisória para acesso ao sistema por SMS.
-    </p>
+    <p class="sms-info">O usuário receberá uma senha provisória para acesso ao sistema por SMS.</p>
 
     <div class="actions-left">
-      <button mat-raised-button color="primary" class="btn-salvar" (click)="onSave()" [disabled]="userForm.invalid">
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        class="btn-salvar"
+        [disabled]="userForm.invalid"
+        (click)="onSave()"
+      >
         SALVAR
       </button>
+      <button mat-button type="button" class="btn-cancel" (click)="onCancel()">CANCELAR</button>
     </div>
   </form>
 </div>
