@@ -29,8 +29,8 @@ export class UserService {
         this.errorSignal.set(null);
 
         const mockData: User[] = [
-            { id: 1, name: 'Grediana Rojas', email: 'grediana@example.com', cpf: '123', phone: '123', status: 'active' },
-            { id: 2, name: 'Carlos Guzman', email: 'carlos@example.com', cpf: '456', phone: '456', status: 'inactive' }
+            { id: 1, name: 'Grediana Rojas', email: 'grediana@example.com', cpf: '12344499933', phone: '48988774422', status: 'active' },
+            { id: 2, name: 'Carlos Guzman', email: 'carlos@example.com', cpf: '12344499922', phone: '48988774423', status: 'active' }
         ];
 
         of(mockData).pipe(
@@ -49,5 +49,21 @@ export class UserService {
 
     setSearchTerm(term: string) {
         this.searchTermSignal.set(term);
+    }
+
+    saveUser(userData: User, id?: number) {
+        const currentUsers = this.usersSignal();
+
+        if (id) {
+            const updatedUsers = currentUsers.map(u =>
+                u.id === id ? { ...userData, id } : u
+            );
+            this.usersSignal.set(updatedUsers);
+        } else {
+            const newUser = { ...userData, id: Date.now() };
+            this.usersSignal.set([...currentUsers, newUser]);
+        }
+
+        return of(true);
     }
 }

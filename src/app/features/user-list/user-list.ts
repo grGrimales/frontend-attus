@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Material Modules
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +14,7 @@ import { User } from '../../core/models/user.model';
 import { Loading } from "../../core/components/loading/loading";
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormComponent } from '../user-form/user-form';
+import { filter, switchMap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-list',
@@ -40,9 +40,18 @@ export class UserListComponent {
   displayedColumns: string[] = ['name', 'email', 'actions'];
 
   editUser(user: User) {
-    console.log('Edit', user);
-  }
+    const dialogRef = this.dialog.open(UserFormComponent, {
+      width: '700px',
+      panelClass: 'flat-dialog-panel',
+      data: user
+    });
 
+    dialogRef.afterClosed().pipe(
+      filter(result => !!result),
+      switchMap(formData => this.userService.saveUser(formData, user.id)),
+      take(1)
+    ).subscribe();
+  }
   deleteUser(id: number) {
     console.log('Delete', id);
   }
@@ -55,7 +64,7 @@ export class UserListComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('New user received:', result);
+        this.userService.saveUser(result).subscribe();
       }
     });
   }

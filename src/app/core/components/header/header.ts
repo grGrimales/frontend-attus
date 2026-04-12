@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core'; // 1. Quité OnDestroy de aquí
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Subject, debounceTime, distinctUntilChanged } from 'rxjs'; // 2. Quité Subscription de aquí
+import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
