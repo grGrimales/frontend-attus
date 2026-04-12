@@ -1,0 +1,6 @@
+.confirm-container { padding: 20px; border-radius: 0; }
+.confirm-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; }
+.confirm-content { margin-bottom: 25px; color: #666; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.btn-cancel { color: #757575 !important; }
+.btn-delete { border-radius: 2px !important; }

@@ -15,6 +15,7 @@ import { Loading } from "../../core/components/loading/loading";
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormComponent } from '../user-form/user-form';
 import { filter, switchMap, take } from 'rxjs/operators';
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog/confirm-dialog';
 
 @Component({
   selector: 'app-user-list',
@@ -52,8 +53,19 @@ export class UserListComponent {
       take(1)
     ).subscribe();
   }
+
   deleteUser(id: number) {
-    console.log('Delete', id);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      panelClass: 'flat-dialog-panel'
+    });
+
+    dialogRef.afterClosed().pipe(
+      filter(result => result === true),
+      take(1)
+    ).subscribe(() => {
+      this.userService.deleteUser(id).subscribe();
+    });
   }
 
   addUser() {
