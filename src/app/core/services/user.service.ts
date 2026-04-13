@@ -51,6 +51,10 @@ export class UserService {
         this.searchTermSignal.set(term);
     }
 
+    setFilter(term: string) {
+        this.setSearchTerm(term);
+    }
+
     saveUser(userData: User, id?: number) {
         const currentUsers = this.usersSignal();
 
@@ -63,6 +67,15 @@ export class UserService {
             const newUser = { ...userData, id: Date.now() };
             this.usersSignal.set([...currentUsers, newUser]);
         }
+
+        return of(true);
+    }
+
+
+    deleteUser(id: number) {
+        const currentUsers = this.usersSignal();
+        const updatedList = currentUsers.filter(u => u.id !== id);
+        this.usersSignal.set(updatedList);
 
         return of(true);
     }

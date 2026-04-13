@@ -1,6 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, beforeEach, it, expect } from 'vitest';
 import { Loading } from './loading';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+
+try {
+  TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+  );
+} catch {
+}
 
 describe('Loading', () => {
   let component: Loading;
@@ -13,6 +22,8 @@ describe('Loading', () => {
 
     fixture = TestBed.createComponent(Loading);
     component = fixture.componentInstance;
+
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 

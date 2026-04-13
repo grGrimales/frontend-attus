@@ -1,18 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, beforeEach, it, expect } from 'vitest';
+import { HeaderComponent } from './header';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
-import { Header } from './header';
+try {
+  TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+  );
+} catch {
+}
 
-describe('Header', () => {
-  let component: Header;
-  let fixture: ComponentFixture<Header>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Header],
+      imports: [HeaderComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Header);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 
