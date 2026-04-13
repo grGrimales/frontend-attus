@@ -1,59 +1,70 @@
-# DesafioFrontendAttus
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+---
 
-## Development server
+# Desafio Frontend - Gerenciamento de Usuários 🚀
 
-To start a local development server, run:
+Este projeto é uma aplicação moderna de gerenciamento de usuários desenvolvida com **Angular ^21.2.0**, focada em performance, código limpo e as melhores práticas do mercado.
 
+## 🛠️ Tecnologias e Ferramentas
+
+* **Framework:** Angular 
+* **Gerenciamento de Estado:** Angular Signals
+* **Estilização:** Angular Material
+* **Testes Unitários:** Vitest
+* **Reporte de Cobertura:** v8 (Cobertura > 60%)
+* **Programação Reativa:** RxJS (operadores avançados)
+
+## 📋 Requisitos Implementados
+
+* **Listagem de Usuários:** Cards responsivos com nome, e-mail e ações de edição.
+* **Filtros Inteligentes:** Busca por nome com **debounceTime** de 300ms para otimização de chamadas.
+* **Feedback ao Usuário:** Estados de loading e tratamento de erros.
+* **Formulários Avançados:** Cadastro e edição via Modal (MatDialog) com validações reativas em tempo real.
+* **Arquitetura:** Componentes 100% standalone e injeção de dependências moderna.
+
+## 🧪 Testes e Qualidade
+
+O projeto utiliza **Vitest** como motor de testes para garantir execuções rápidas e confiáveis.
+
+* **Cobertura de Sentenças:** 60.22%
+* **Total de Testes:** 14 Passados
+
+Para executar os testes e gerar o relatório de cobertura:
 ```bash
-ng serve
+npx vitest run --coverage
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Como Executar o Projeto
 
-## Code scaffolding
+Siga os passos abaixo para rodar a aplicação localmente:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/grGrimales/frontend-attus.git]
+    cd desafio-frontend-attus
+    ```
 
-```bash
-ng generate component component-name
-```
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npx ng serve
+    ```
 
-```bash
-ng generate --help
-```
+4.  **Acesse a aplicação:**
+    Abra o navegador em `http://localhost:4200/`
 
-## Building
+## 🧠 Decisões Técnicas (Diferenciais)
 
-To build the project run:
+* **Signals vs RxJS:** Optei por usar **Signals** para o gerenciamento de estado local da lista de usuários devido à sua granularidade na detecção de mudanças, reservando o RxJS para fluxos de dados assíncronos e transformação de eventos.
+* **Vitest:** Substituí o Karma tradicional pelo Vitest para ganhar velocidade no ciclo de feedback durante o desenvolvimento e facilitar a configuração de cobertura com v8.
+* **Mocks de API:** Implementei uma lógica de serviço que simula interações assíncronas com uma API, incluindo delays propositais para demonstrar o comportamento do estado de Loading.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Desenvolvido por Grediana Rojas** ✨
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
